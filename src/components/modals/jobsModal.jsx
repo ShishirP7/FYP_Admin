@@ -16,6 +16,8 @@ export default function JobsModal({ closeModal, openModal, isOpen, item }) {
     toast.success(Response?.data?.message);
   };
 
+  
+
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>

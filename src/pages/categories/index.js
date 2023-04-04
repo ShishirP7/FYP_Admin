@@ -18,13 +18,11 @@ export default function Employers() {
     console.log(categoryRequests, "categoryReq")
     console.log(categoryHistory, "cate history")
 
-
-
-
-
     return (
         <div>
-            <div className='flex gap-2'>
+            <h6 className='text-lg font-bold  text-gray-500'> Admin / Jobs</h6>
+
+            <div className='flex gap-2 mt-6'>
                 <button className={`rounded-sm px-3 py-1 bg-[#BDCDD6] hover:bg-[#57C5B6] w-32 text-white`} onClick={() => setTab(0)}>Pending</button>
                 <button className={`rounded-sm px-3 py-1  bg-[#BDCDD6] hover:bg-[#57C5B6] w-32 text-white`} onClick={() => setTab(1)}>History</button>
             </div>
@@ -40,6 +38,7 @@ export default function Employers() {
 
 
 const EmployerTable = ({ categoryRequests, tab }) => {
+    console.log(categoryRequests, "req")
     return (
         <div class="overflow-x-auto ">
             <div class="min-w-screen  flex items-center justify-center font-sans overflow-hidden">
@@ -75,7 +74,8 @@ const EmployerTable = ({ categoryRequests, tab }) => {
     )
 }
 
-const TableData = ({ item,tab }) => {
+const TableData = ({ item, tab }) => {
+    console.log(item)
 
     let [isOpen, setIsOpen] = useState(false);
 

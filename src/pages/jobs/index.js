@@ -19,7 +19,9 @@ export default function Jobs() {
 
   return (
     <div>
-      <div className='flex gap-2'>
+      <h6 className='text-lg font-bold  text-gray-500'> Admin / Jobs</h6>
+
+      <div className='flex gap-2 mt-6' >
         <button className={`rounded-sm px-3 py-1  bg-[#BDCDD6] hover:bg-[#57C5B6] w-32 text-white`} onClick={() => setTab(0)}>All Jobs</button>
         <button className={`rounded-sm px-3 py-1  bg-[#BDCDD6] hover:bg-[#57C5B6] w-32 text-white`} onClick={() => setTab(1)}>Verified Jobs</button>
         <button className={`rounded-sm px-3 py-1  bg-[#BDCDD6] hover:bg-[#57C5B6] w-32 text-white`} onClick={() => setTab(2)}>Pending</button>
@@ -81,7 +83,7 @@ const TableData = ({ item }) => {
     setIsOpen(true);
   }
 
-
+console.log(item)
   return (
     <>
       <JobsModal item={item} isOpen={isOpen} closeModal={closeModal} openModal={openModal} />
@@ -103,7 +105,7 @@ const TableData = ({ item }) => {
         <td class="py-3 px-6 text-left">
           <div class="flex items-center">
             <div class="mr-2">
-              <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
+              <img class="w-6 h-6 rounded-full" src={item?.employerID?.userPhoto}/>
             </div>
             <span>{item?.employerID?.name}</span>
           </div>
@@ -111,7 +113,7 @@ const TableData = ({ item }) => {
         <td class="py-3 px-6 text-left">
           <div class="flex items-center">
             <div class="mr-2">
-              <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
+              <img class="w-6 h-6 rounded-full" src={item?.employerID?.companyPhoto}/>
             </div>
             <span>{item?.employerID?.companyName}</span>
           </div>

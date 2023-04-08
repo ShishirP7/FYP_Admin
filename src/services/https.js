@@ -49,3 +49,15 @@ export const httpEmpchangepw = async (data) => {
   const Data = await axios.post("http://localhost:4000/admin/reset", data)
   return Data
 }
+export const httpgetDashboardData = async () => {
+  const Data = await axios.get("http://localhost:4000/job/getDashboardData")
+  return Data
+}
+export const httpgetjobCountbyCategory = async () => {
+  const Data = await axios.get("http://localhost:4000/job/getJobCountByCategory")
+  return Data
+}
+export const httpgetTopEmployer = async () => {
+  const Data = await axios.get("http://localhost:4000/job/getTopEmployer")
+  return Data
+}

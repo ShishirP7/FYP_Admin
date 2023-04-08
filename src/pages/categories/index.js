@@ -15,8 +15,6 @@ export default function Employers() {
         setCategoryRequests(state.categoryRequest)
         setcategoryHistory(state.categoryHistory)
     }, [state.categoryHistory, state.categoryRequest])
-    console.log(categoryRequests, "categoryReq")
-    console.log(categoryHistory, "cate history")
 
     return (
         <div>
@@ -75,7 +73,6 @@ const EmployerTable = ({ categoryRequests, tab }) => {
 }
 
 const TableData = ({ item, tab }) => {
-    console.log(item)
 
     let [isOpen, setIsOpen] = useState(false);
 
@@ -88,13 +85,13 @@ const TableData = ({ item, tab }) => {
     }
 
     const handleApprove = async () => {
-        const Response = await httpapproveCategoryChange({ employer_id: item?.employerID?._id, job_id: item?.jobID._id })
+        const Response = await httpapproveCategoryChange({ paymentID: item?._id })
         console.log(Response, "response")
         closeModal()
     }
 
     const handleReject = async () => {
-        const Response = await httprejectCategoryChange({ employer_id: item?.employerID?._id, job_id: item?.jobID._id })
+        const Response = await httprejectCategoryChange({ paymentID: item?._id })
         console.log(Response, "response")
         closeModal()
     }
@@ -119,7 +116,7 @@ const TableData = ({ item, tab }) => {
                 <td class="py-3 px-6 text-left">
                     <div class="flex items-center">
                         <div class="mr-2">
-                            <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
+                            <img class="w-6 h-6 rounded-full" src={item?.employerID?.userPhoto} />
                         </div>
                         <span>{item?.employerID?.name}</span>
                     </div>

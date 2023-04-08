@@ -16,8 +16,6 @@ export default function JobsModal({ closeModal, openModal, isOpen, item }) {
     toast.success(Response?.data?.message);
   };
 
-  
-
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -145,7 +143,8 @@ const JobDetails = ({ item }) => {
           <div class="bg-gray-50 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Skills Required</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-              {item?.skillsRequired}
+              {item?.skillsRequired &&
+                item?.skillsRequired.map((item) => <>{item?.skill} ,</>)}
             </dd>
           </div>
           <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

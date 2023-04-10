@@ -8,19 +8,22 @@ export const AppContext = createContext([]);
 
 
 const AppContextContainer = ({ children }) => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const cookie = new Cookies();
     const navigate = useNavigate();
     const location = useLocation();
 
     useEffect(() => {
         const isLoggedIn = cookie.get("isLoggedin");
-        if (!isLoggedIn) {
+
+        if (!isLoggedIn && !["/login", "/signUp"].includes(location.pathname)) {
             navigate("/login");
-        } else if (isLoggedIn && location.pathname === "/login") {
+            toast.info("Login to continue")
+        } else if (isLoggedIn && ["/login", "/signUp"].includes(location.pathname)) {
             navigate("/admin/");
-            toast.success("Already Logged in ")
+            toast.info("Already Logged in ");
         }
-    }, [location]);
+    }, [cookie, location, navigate]);
 
     return (
         <AppContext.Provider value={{}}>

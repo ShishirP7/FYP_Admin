@@ -74,7 +74,7 @@ export default function CategoryModal({
                         onClick={closeModal}
                         className="p-2   text-sm font-normal text-white rounded-md bg-[#DA3C3F]"
                       >
-                       Close
+                        Close
                       </button>
                     </div>
                   )}
@@ -89,6 +89,7 @@ export default function CategoryModal({
 }
 
 const JobDetails = ({ item }) => {
+  console.log(item, "item");
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -135,8 +136,8 @@ const JobDetails = ({ item }) => {
             </dt>
             <img
               onClick={openModal}
-              className="w-24 rounded-md hover:opacity-30  transition-all   "
-              src="https://blog.esewa.com.np/assets/upload/images/Final.png"
+              className="w-24 rounded-md hover:opacity-30 object-contain  transition-all   "
+              src={item?.paymentScreenshot}
             ></img>
           </div>
           <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

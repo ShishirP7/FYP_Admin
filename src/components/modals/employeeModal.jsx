@@ -2,10 +2,12 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { toast } from "react-toastify";
 import { httpApproveEmployer, httpDeleteEmployer } from "../../services/https";
-import { convertToBase64 } from "../../utils/Conversionbase64";
 import Select from "../commons/Fields/SelectField";
 import TextField from "../commons/TextField";
 import { TextFieldError } from "../commons/TextField";
+
+
+
 export default function EmployeeModal({
   settings,
   isOpen,
@@ -108,7 +110,7 @@ const EmployerDetails = ({
             onChange={async (event) => {
               formik.setFieldValue(
                 "userPhoto",
-                await convertToBase64(event.target.files[0])
+                await convertBase64(event.target.files[0])
               );
             }}
           ></input>
@@ -119,7 +121,7 @@ const EmployerDetails = ({
             onChange={async (event) => {
               formik.setFieldValue(
                 "companyPhoto",
-                await convertToBase64(event.target.files[0])
+                await convertBase64(event.target.files[0])
               );
             }}
           ></input>
@@ -324,4 +326,12 @@ const EmployerDetails = ({
       </div>
     </>
   );
+};
+export const convertBase64 = (file) => {
+  return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => { resolve(fileReader.result); };
+      fileReader.onerror = (error) => { reject(error); };
+  });
 };

@@ -51,8 +51,6 @@ const EmployerTable = ({ categoryRequests, tab }) => {
                                     <th class="py-3 px-6 text-center">Actions</th>
                                 </tr>
                             </thead>
-
-
                             {
                                 categoryRequests && categoryRequests.data && categoryRequests.data.map((item, index) => {
                                     return (

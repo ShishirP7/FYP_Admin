@@ -98,10 +98,11 @@ const JobDetails = ({ item }) => {
   function openModal() {
     setIsOpen(true);
   }
+  console.log(item, "item");
 
   return (
     <div class="overflow-hidden bg-white shadow sm:rounded-lg">
-      <ImageModal isOpen={isOpen} closeModal={closeModal} />
+      <ImageModal item={item} isOpen={isOpen} closeModal={closeModal} />
       <div class="border-t border-gray-200">
         <dl>
           <div class="bg-gray-50 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

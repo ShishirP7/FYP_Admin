@@ -89,7 +89,6 @@ export default function CategoryModal({
 }
 
 const JobDetails = ({ item }) => {
-  console.log(item, "item");
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -98,7 +97,6 @@ const JobDetails = ({ item }) => {
   function openModal() {
     setIsOpen(true);
   }
-  console.log(item, "item");
 
   return (
     <div class="overflow-hidden bg-white shadow sm:rounded-lg">

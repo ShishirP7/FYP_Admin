@@ -30,7 +30,6 @@ export default function AdminDashboard() {
     }, [])
 
 
-    console.log(topEmployer, "Hello there")
 
     const data = {
         labels: ['Basic', 'Hot', 'Premium', 'Featured'],

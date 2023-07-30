@@ -36,9 +36,7 @@ export const httpLogin = async (data) => {
 }
 
 export const httpSignup = async (data) => {
-  console.log(data, "https")
   const Data = await axios.post("http://localhost:4000/authentication/signUp", data)
-  console.log(Data, "data")
   return Data?.data
 }
 export const httpupdateProfile = async (data) => {

@@ -30,10 +30,8 @@ export default function Login() {
         initialTouched: false,
 
         onSubmit: async (values, { setSubmitting }) => {
-            console.log(values, "values")
 
             const Response = await httpLogin(values)
-            console.log(Response, "Response")
             if (Response && Response.success) {
                 // setCookie('token_Admin', Response.token, { path: '/' });
                 cookies.set('isLoggedin', Response.token, { path: '/' });

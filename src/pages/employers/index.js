@@ -83,7 +83,6 @@ const TableData = ({ item }) => {
   function closeModal() {
     setIsOpen(false);
   }
-  console.log(settings, "settings")
 
   function openModal() {
     setIsOpen(true);
@@ -112,7 +111,6 @@ const TableData = ({ item }) => {
     phoneNumber: yup.string().required("phoneNumber is Required"),
     website: yup.string().required("website is Required"),
   });
-  console.log(item, "employerData")
 
   const formik = useFormik({
     initialValues,
@@ -123,13 +121,11 @@ const TableData = ({ item }) => {
     initialTouched: false,
     onSubmit: async (values, { setSubmitting }) => {
       const Data = { ...values, id: item?._id, role: item?.role };
-      console.log(Data, "@formik")
 
       const Response = await httpupdateProfile(Data)
       if (Response?.data?.success === true) {
         toast.success("Success")
         closeModal()
-        console.log(Response, "Response")
       } else {
         toast.error(Response.data.message)
         closeModal()

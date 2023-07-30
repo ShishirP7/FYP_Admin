@@ -32,7 +32,6 @@ export default function SignUp() {
 
         onSubmit: async (values, { setSubmitting }) => {
             const Response = await httpSignup(values)
-            console.log(Response, "response")
             if (Response.success) {
                 toast.success(Response.message)
             }

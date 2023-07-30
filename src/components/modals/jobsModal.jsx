@@ -4,10 +4,8 @@ import { toast } from "react-toastify";
 import { httpApproveJob, httpRemoveJob } from "../../services/https";
 
 export default function JobsModal({ closeModal, openModal, isOpen, item }) {
-  console.log(item, "item");
   const handleApprove = async () => {
     const Response = await httpApproveJob(item._id);
-    console.log(Response, "response");
     toast.success(Response?.data?.message);
   };
 

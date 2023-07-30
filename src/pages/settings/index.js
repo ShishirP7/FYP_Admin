@@ -19,7 +19,6 @@ export default function Settings() {
 
 
   const decodedToken = jwtDecode(cookieData);
-  console.log(decodedToken, "decoded")
 
 
   const initialValues = {
@@ -58,7 +57,6 @@ export default function Settings() {
       try {
 
         const Response = await httpEmpchangepw(values)
-        console.log(Response)
         if (Response?.data?.success) {
           toast.success("Password Updated")
           formik.resetForm()
@@ -67,12 +65,10 @@ export default function Settings() {
           formik.resetForm()
         }
       } catch (error) {
-        console.log(error)
         formik.resetForm()
       }
     },
   });
-  console.log(formik, "formik")
   return (
     <div className='md:flex justify-center relative'>
       <div className='md:w-1/2 bg-white p-8 rounded-md shadow-md '>

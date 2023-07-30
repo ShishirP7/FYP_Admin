@@ -1,4 +1,4 @@
-export const convertToBase64 = (file) => {
+const convertBase64 = (file) => {
     return new Promise((resolve, reject) => {
         const fileReader = new FileReader();
         fileReader.readAsDataURL(file);
@@ -6,3 +6,4 @@ export const convertToBase64 = (file) => {
         fileReader.onerror = (error) => { reject(error); };
     });
 };
+export default convertBase64

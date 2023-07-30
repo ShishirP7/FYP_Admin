@@ -74,7 +74,7 @@ export default function CategoryModal({
                         onClick={closeModal}
                         className="p-2   text-sm font-normal text-white rounded-md bg-[#DA3C3F]"
                       >
-                       Close
+                        Close
                       </button>
                     </div>
                   )}
@@ -100,7 +100,7 @@ const JobDetails = ({ item }) => {
 
   return (
     <div class="overflow-hidden bg-white shadow sm:rounded-lg">
-      <ImageModal isOpen={isOpen} closeModal={closeModal} />
+      <ImageModal item={item} isOpen={isOpen} closeModal={closeModal} />
       <div class="border-t border-gray-200">
         <dl>
           <div class="bg-gray-50 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -135,8 +135,8 @@ const JobDetails = ({ item }) => {
             </dt>
             <img
               onClick={openModal}
-              className="w-24 rounded-md hover:opacity-30  transition-all   "
-              src="https://blog.esewa.com.np/assets/upload/images/Final.png"
+              className="w-24 rounded-md hover:opacity-30 object-contain  transition-all   "
+              src={item?.paymentScreenshot}
             ></img>
           </div>
           <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

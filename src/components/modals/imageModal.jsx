@@ -1,7 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 
-export default function MyModal({ isOpen, closeModal }) {
+export default function MyModal({item, isOpen, closeModal }) {
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -29,8 +29,8 @@ export default function MyModal({ isOpen, closeModal }) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <img src="https://blog.esewa.com.np/assets/upload/images/Final.png"></img>
+                <Dialog.Panel className="w-full max-w-6xl max-h-[80vh] transform overflow-hidden rounded-2xl bg-white  text-left align-middle shadow-xl transition-all">
+                  <img className="w-full object-cover" src={item?.paymentScreenshot}></img>
                 </Dialog.Panel>
               </Transition.Child>
             </div>

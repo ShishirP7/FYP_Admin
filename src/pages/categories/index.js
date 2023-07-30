@@ -36,7 +36,6 @@ export default function Employers() {
 
 
 const EmployerTable = ({ categoryRequests, tab }) => {
-    console.log(categoryRequests, "req")
     return (
         <div class="overflow-x-auto ">
             <div class="min-w-screen  flex items-center justify-center font-sans overflow-hidden">
@@ -51,8 +50,6 @@ const EmployerTable = ({ categoryRequests, tab }) => {
                                     <th class="py-3 px-6 text-center">Actions</th>
                                 </tr>
                             </thead>
-
-
                             {
                                 categoryRequests && categoryRequests.data && categoryRequests.data.map((item, index) => {
                                     return (
@@ -86,13 +83,11 @@ const TableData = ({ item, tab }) => {
 
     const handleApprove = async () => {
         const Response = await httpapproveCategoryChange({ paymentID: item?._id })
-        console.log(Response, "response")
         closeModal()
     }
 
     const handleReject = async () => {
         const Response = await httprejectCategoryChange({ paymentID: item?._id })
-        console.log(Response, "response")
         closeModal()
     }
 
@@ -123,7 +118,7 @@ const TableData = ({ item, tab }) => {
                 </td>
 
                 <td class="py-3 px-6 text-center">
-                    <span class=" text-xs flex items-center  justify-center gap-4">  <span className='rounded-full w-6 h-6 items-center flex justify-center bg-red-500 text-white'>{item?.oldCategory}</span>  <FcRight /><span className='rounded-full w-6 h-6 items-center flex justify-center bg-green-400 text-white'>{item?.newCategory}</span> </span>
+                    <span class=" text-xs flex items-center  justify-center gap-4">  <span className='rounded-full w-6 h-6 items-center flex justify-center bg-red-500 text-white'>{item?.oldCategory == 0 ? "Basic" : item?.oldCategory == 1 ? "Premium" : item?.oldCategory == 2 ? "Hot" : "Featured"}</span>  <FcRight /><span className='rounded-full w-6 h-6 items-center flex justify-center bg-green-400 text-white'>{item?.newCategory == 0 ? "Basic" : item?.newCategory == 1 ? "Premium" : item?.newCategory == 2 ? "Hot" : "Featured"}</span> </span>
                 </td>
                 <td class="py-3 px-6 text-center">
                     <button onClick={openModal} className="p-1 w-20 font-medium text-white rounded-md bg-[#00C0A3]">Review</button>
